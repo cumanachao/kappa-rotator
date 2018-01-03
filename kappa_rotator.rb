@@ -5,7 +5,7 @@ inputKappa = ARGV[1]
 kappaName = inputKappa.split('.').first
 
 if kappaName.split('/').length > 1
-  kappaName = 'rolling_' + kappaName.split('/')[1]
+  kappaName = 'rolling_' + kappaName.split('/').last
 end
 
 for i in 0..fps
