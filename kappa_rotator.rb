@@ -4,6 +4,10 @@ fps = ARGV[0].to_i
 inputKappa = ARGV[1]
 kappaName = inputKappa.split('.').first
 
+if kappaName.split('/').length > 1
+  kappaName = 'rolling_' + kappaName.split('/')[1]
+end
+
 for i in 0..fps
   kappa = MiniMagick::Image.open("#{inputKappa}")
 
@@ -29,5 +33,5 @@ MiniMagick::Tool::Convert.new do |convert|
 
   convert.loop('0')
 
-  convert << "rolling_#{kappaName}.gif"
+  convert << "#{kappaName}.gif"
 end
